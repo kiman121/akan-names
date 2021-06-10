@@ -3,7 +3,6 @@ var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'A
 const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
     
-
 var startYear = 1900;
 
 for(i=0, i < currentYear; i++){
