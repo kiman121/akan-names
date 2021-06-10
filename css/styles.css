@@ -1,0 +1,39 @@
+body{
+    font-family: sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+h3{
+    font-style: bold;
+}
+.content-wrapper{
+    margin: 1em .5em;
+    padding: 1em 2em;
+    border: 1px solid;
+    border-radius: 5px;
+    /* display: flex;
+    align-content: flex-end; */
+}
+.get-akan-name{
+    border-top: 1px solid;
+    /* padding:  2em; */
+}
+.btn-submit{
+    /* width: 80%; */
+    float: right;
+}
+.text-italic-blue,
+.text-italic{
+    font-style: italic;
+}
+.text-italic-blue,
+.text-blue{
+    color: blue;
+}
+@media screen and (min-width:768px) {
+    .get-akan-name{
+        border-top: none;
+        border-left: 1px solid;
+        /* padding: 2em; */
+    }
+}
