@@ -1,25 +1,38 @@
-var yearsFrom1900 = [];
-var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August','September', 'October', 'November','December'];
 const currentDate = new Date();
-const currentYear = currentDate.getFullYear();
+const currentYear = parseInt( currentDate.getFullYear());
+const selectYear = document.querySelector('.select-year');
+const selectMonth = document.querySelector('.select-month');
+
+let yearsFrom1900 = [];
+let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August','September', 'October', 'November','December'];
+
+let counter = currentYear;
+let i = 0;
+// Get years form 1900 to current year
+while (counter >= 1900){ 
+    let option = document.createElement('option');
     
-var startYear = 1900;
+    option.value = i;
+    option.textContent = counter;
+    selectYear.appendChild(option);
 
-for(i=0, i < currentYear; i++){
-    yearsFrom1900.push(startYear++);
-    startYear++;
+    counter --;
+    i++;
 }
-
-console.log(yearsFrom1900);
-/* January - 31 days
-February - 28 days in a common year and 29 days in leap years
-March - 31 days
-April - 30 days
-May - 31 days
-June - 30 days
-July - 31 days
-August - 31 days
-September - 30 days
-October - 31 days
-November - 30 days
-December - 31 days */
+// Push the months array value to selectMonth html element
+for(i = 0; i < months.length; i++){
+    let option = document.createElement('option');
+    option.value = i;
+    option.textContent = months[i];
+    selectMonth.appendChild(option);
+}
+//
+let monthDays = [];
+let checkIfLeapYear = (selectedYear) => {
+    if(((selectedYear % 4 === 0) && (selectedYear % 100 !== 0 )) || (selectedYear % 400 === 0)){
+        // Leap year
+        monthDays = ['31', '29', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31'];
+    } else{
+        monthDays = ['31', '28', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31'];
+    } 
+}
