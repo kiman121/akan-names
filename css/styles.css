@@ -1,52 +1,52 @@
-body{
-    font-family: sans-serif;
-    font-size: 14px;
-    line-height: 1.6;
+body {
+  font-family: sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
 }
-h3{
-    font-style: bold;
+h3 {
+  font-style: bold;
 }
-.form-control{
-    height: calc(1.5em + .75rem + 8px) !important;
+.form-control {
+  height: calc(1.5em + 0.75rem + 8px) !important;
 }
-.content-wrapper{
-    margin: 1em;
-    padding: 2em;
-    border: 1px solid rgba(0, 0, 0, .125);
-    border-radius: 5px;
+.content-wrapper {
+  margin: 1em;
+  padding: 2em;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 5px;
 }
-.akan-origin{
-    padding-bottom: 1em;
+.akan-origin {
+  padding-bottom: 1em;
 }
-.get-akan-name{
-    border-top: 2px solid rgba(0, 0, 0, .125);
-    padding-top: 2em;
+.get-akan-name {
+  border-top: 2px solid rgba(0, 0, 0, 0.125);
+  padding-top: 2em;
 }
-.btn-submit{
-    float: right;
-    width: 50%;
-}
-.text-italic-blue,
-.text-italic{
-    font-style: italic;
+.btn-submit {
+  float: right;
+  width: 50%;
 }
 .text-italic-blue,
-.text-blue{
-    color: blue;
+.text-italic {
+  font-style: italic;
 }
-.validate{
-    border-color: red;
+.text-italic-blue,
+.text-blue {
+  color: blue;
 }
-.hide-alert{
-    display: none;
+.validate {
+  border-color: red;
 }
-@media screen and (min-width:768px) {
-    .get-akan-name{
-        border-top: none;
-        border-left: 2px solid rgba(0, 0, 0, .125);
-        padding-top: 0;
-    }
-    .akan-origin{
-        padding-bottom: 0;
-    }
+.hide-alert {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .get-akan-name {
+    border-top: none;
+    border-left: 2px solid rgba(0, 0, 0, 0.125);
+    padding-top: 0;
+  }
+  .akan-origin {
+    padding-bottom: 0;
+  }
 }

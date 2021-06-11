@@ -55,48 +55,78 @@ selectMonth.addEventListener("change", (event) => {
   populateSelectDayList(selectedYearText);
 });
 
-function fetchAkanName (){
-    let formData = {
-        choosenYearValue: selectYear.value, 
-        choosenMonthValue: selectMonth.value, 
-        choosenDayValue: selectDay.value,
-        choosenGenderValue: selectGender.value
-    };
-    
-    formAlerts.innerHTML="";
-    formAlerts.classList.remove('alert-danger');
-    formAlerts.classList.add('hide-alert');
-    
-    let error = true;
-    let fieldsToCheck = [];
-    for(i = 0; i < Object.keys(formData).length; i++){
-        let field = Object.keys(formData)[i], fieldValue = Object.values(formData)[i];
-        // Remove '.validate' class
-        document.querySelector('#'+field).classList.remove('validate');
-        // validate
-        if(fieldValue === ''){
-            fieldsToCheck.push(field);
-            error = false; 
-        } 
+function fetchAkanName() {
+  let formData = {
+    choosenYearValue: selectYear.value,
+    choosenMonthValue: selectMonth.value,
+    choosenDayValue: selectDay.value,
+    choosenGenderValue: selectGender.value,
+  };
+
+  formAlerts.innerHTML = "";
+  formAlerts.classList.remove("alert-danger");
+  formAlerts.classList.add("hide-alert");
+
+  let error = true;
+  let fieldsToCheck = [];
+  for (i = 0; i < Object.keys(formData).length; i++) {
+    let field = Object.keys(formData)[i],
+      fieldValue = Object.values(formData)[i];
+    // Remove '.validate' class
+    document.querySelector("#" + field).classList.remove("validate");
+    // validate
+    if (fieldValue === "") {
+      fieldsToCheck.push(field);
+      error = false;
     }
-    
-    if(error !== true){
-        for(i=0; i < fieldsToCheck.length; i++){
-            document.querySelector('#'+fieldsToCheck[i]).classList.add('validate');
-        }
-        
-        formAlerts.appendChild(document.createTextNode('Fill the missing fields!'));
-        formAlerts.classList.remove('hide-alert');
-        formAlerts.classList.add('alert-danger');
+  }
+
+  if (error !== true) {
+    for (i = 0; i < fieldsToCheck.length; i++) {
+      document.querySelector("#" + fieldsToCheck[i]).classList.add("validate");
+    }
+
+    formAlerts.appendChild(document.createTextNode("Fill the missing fields!"));
+    formAlerts.classList.remove("hide-alert");
+    formAlerts.classList.add("alert-danger");
+  } else {
+    let YY = parseInt(selectYear.options[selectYear.selectedIndex].text),
+      MM = parseInt(formData.choosenMonthValue),
+      DD = parseInt(selectDay.options[selectDay.selectedIndex].text),
+      genderValue = formData.choosenGenderValue,
+      dateOfBirth = new Date(MM + "/" + DD + "/" + YY),
+      dayOfTheWeekIndex = dateOfBirth.getDay()
+      akanNames = [],
+      salutation = "";
+      
+    const daysOfTheWeek = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+
+    if (genderValue === "f") {
+        akanNames = ['Akosua','Adwoa','Abenaa','Akua','Yaa','Afua', 'Ama'];
+        salutation = "Ms"
     } else {
-
+        akanNames = ['Kwasi','Kwadwo','Kwabena','Kwaku','Yaw','Kofi','Kwame'];
+        salutation = 'Sir';
     }
-
+    let weekDay = daysOfTheWeek[dayOfTheWeekIndex],
+        userAkanName = akanNames[dayOfTheWeekIndex];
+    console.log(genderValue);
+    console.log(salutation + ", you were born on a " + weekDay + " and your Akan name is "+userAkanName);
+  }
 }
 
 let populateSelectDayList = (selectedYearText) => {
   const selectedYearValue = selectYear.options[selectYear.selectedIndex].value;
-  const selectedMonthValue = selectMonth.options[selectMonth.selectedIndex].value;
+  const selectedMonthValue =
+    selectMonth.options[selectMonth.selectedIndex].value;
 
   if (selectedYearValue != 0 && selectedMonthValue != 0) {
     let choosenYear = parseInt(selectedYearText);
