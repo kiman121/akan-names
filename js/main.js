@@ -3,7 +3,7 @@ const currentYear = parseInt(currentDate.getFullYear());
 const selectYear = document.querySelector(".select-year");
 const selectMonth = document.querySelector(".select-month");
 const selectDay = document.querySelector(".select-day");
-const selectedMonthYear = document.querySelector(".month-year");
+const selectGender = document.querySelector(".select-gender");
 
 let yearsFrom1900 = [];
 let months = [
@@ -54,6 +54,37 @@ selectMonth.addEventListener("change", (event) => {
   populateSelectDayList(selectedYearText);
 });
 
+function fetchAkanName (){
+    let formData = {
+        choosenYearValue: selectYear.value, 
+        choosenMonthValue: selectMonth.value, 
+        choosenDayValue: selectDay.value,
+        choosenGenderValue: selectGender.value
+    };
+    let error = true;
+    let fieldsToCheck = [];
+
+    for(i = 0; i < Object.keys(formData).length; i++){
+        let field = Object.keys(formData)[i], fieldValue = Object.values(formData)[i];
+        // Remove '.validate' class
+        document.querySelector('#'+field).classList.remove('validate');
+        // validate
+        if(fieldValue === ''){
+            fieldsToCheck.push(field);
+            error = false; 
+        } 
+    }
+    console.log(fieldsToCheck);
+    if(error !== true){
+        for(i=0; i < fieldsToCheck.length; i++){
+            document.querySelector('#'+fieldsToCheck[i]).classList.add('validate');
+        }
+    } else {
+        
+    }
+
+}
+
 let populateSelectDayList = (selectedYearText) => {
   const selectedYearValue = selectYear.options[selectYear.selectedIndex].value;
   const selectedMonthValue = selectMonth.options[selectMonth.selectedIndex].value;
@@ -86,6 +117,7 @@ let populateSelectDayList = (selectedYearText) => {
     selectDay.appendChild(option);
   }
 };
+
 // Remove options for the selcted input
 let removeOptions = (selectInput) => {
   while (selectInput.options.length) {

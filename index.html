@@ -27,36 +27,32 @@
             <div class="col-md-6 get-akan-name">
               <h3>Get your Akan Name</h3>
               <p>To get your Akan name, kindly fill in the form below</p>
-              <form action="">
+              <form action="" class="akan-name-form">
                 <div class="form-group">
-                  <!-- <label for="day">Year</label> -->
-                  <select class="form-control select-year" name="selectedYear" id="day">
+                  <select class="form-control select-year" name="selectedYear" id="choosenYearValue">
                     <option value="">Choose year</option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <!-- <label for="day">Month</label> -->
-                  <select class="form-control select-month" name="selectedMonth" id="day">
+                  <select class="form-control select-month" name="selectedMonth" id="choosenMonthValue">
                     <option value="">Choose month</option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <!-- <label for="day">Day</label> -->
-                  <select class="form-control select-day" name="day" id="selectedDay">
+                  <select class="form-control select-day" name="day" id="choosenDayValue">
                     <option value="">Choose day</option>
                   </select>
                 </div>
 
                 <div class="form-group">
-                  <!-- <label for="day">Gender</label> -->
-                  <select class="form-control" name="day" id="day">
+                  <select class="form-control select-gender" name="day" id="choosenGenderValue">
                     <option value="">Choose gender</option>
                     <option value="m">Male</option>
                     <option value="f">Female</option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <button class="btn btn-primary btn-submit">Get Name</button>
+                  <button type="button" onclick="fetchAkanName()" class="btn btn-primary btn-submit">Get Name</button>
                 </div>
               </form>
             </div>
