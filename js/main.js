@@ -131,9 +131,9 @@ function fetchAkanName() {
       document.createTextNode(
         salutation +
           ", you were born on " +
-          MM +
-          "/" +
           DD +
+          "/" +
+          MM +
           "/" +
           YY +
           " a " +
