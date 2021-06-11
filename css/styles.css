@@ -6,23 +6,25 @@ body{
 h3{
     font-style: bold;
 }
+.form-control{
+    height: calc(1.5em + .75rem + 8px) !important;
+}
 .content-wrapper{
-    margin: 1em .5em;
+    margin: 1em;
     padding: 2em;
-    border: 1px solid;
+    border: 1px solid rgba(0, 0, 0, .125);
     border-radius: 5px;
-    /* display: flex;
-    align-content: flex-end; */
 }
 .akan-origin{
     padding-bottom: 1em;
 }
 .get-akan-name{
-    border-top: 1px solid;
+    border-top: 2px solid rgba(0, 0, 0, .125);
     padding-top: 2em;
 }
 .btn-submit{
     float: right;
+    width: 50%;
 }
 .text-italic-blue,
 .text-italic{
@@ -35,7 +37,7 @@ h3{
 @media screen and (min-width:768px) {
     .get-akan-name{
         border-top: none;
-        border-left: 1px solid;
+        border-left: 2px solid rgba(0, 0, 0, .125);
         padding-top: 0;
     }
     .akan-origin{

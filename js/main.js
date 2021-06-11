@@ -56,8 +56,7 @@ selectMonth.addEventListener("change", (event) => {
 
 let populateSelectDayList = (selectedYearText) => {
   const selectedYearValue = selectYear.options[selectYear.selectedIndex].value;
-  const selectedMonthValue =
-    selectMonth.options[selectMonth.selectedIndex].value;
+  const selectedMonthValue = selectMonth.options[selectMonth.selectedIndex].value;
 
   if (selectedYearValue != 0 && selectedMonthValue != 0) {
     let choosenYear = parseInt(selectedYearText);
@@ -67,7 +66,7 @@ let populateSelectDayList = (selectedYearText) => {
     ];
 
     removeOptions(selectDay);
-    
+
     let option = document.createElement("option");
     option.value = "";
     option.textContent = "Choose day";
