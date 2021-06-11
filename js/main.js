@@ -62,9 +62,9 @@ function fetchAkanName() {
     choosenDayValue: selectDay.value,
     choosenGenderValue: selectGender.value,
   };
-
+  // Hide the alert div
   formAlerts.innerHTML = "";
-  formAlerts.classList.remove("alert-danger");
+  formAlerts.classList.remove("alert-danger", "alert-success");
   formAlerts.classList.add("hide-alert");
 
   let error = true;
@@ -80,7 +80,7 @@ function fetchAkanName() {
       error = false;
     }
   }
-
+  // Evaluate the validation outcome
   if (error !== true) {
     for (i = 0; i < fieldsToCheck.length; i++) {
       document.querySelector("#" + fieldsToCheck[i]).classList.add("validate");
@@ -95,10 +95,9 @@ function fetchAkanName() {
       DD = parseInt(selectDay.options[selectDay.selectedIndex].text),
       genderValue = formData.choosenGenderValue,
       dateOfBirth = new Date(MM + "/" + DD + "/" + YY),
-      dayOfTheWeekIndex = dateOfBirth.getDay()
-      akanNames = [],
-      salutation = "";
-      
+      dayOfTheWeekIndex = dateOfBirth.getDay();
+    (akanNames = []), (salutation = "");
+
     const daysOfTheWeek = [
       "Sunday",
       "Monday",
@@ -110,16 +109,45 @@ function fetchAkanName() {
     ];
 
     if (genderValue === "f") {
-        akanNames = ['Akosua','Adwoa','Abenaa','Akua','Yaa','Afua', 'Ama'];
-        salutation = "Ms"
+      akanNames = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
+      salutation = "Ms";
     } else {
-        akanNames = ['Kwasi','Kwadwo','Kwabena','Kwaku','Yaw','Kofi','Kwame'];
-        salutation = 'Sir';
+      akanNames = [
+        "Kwasi",
+        "Kwadwo",
+        "Kwabena",
+        "Kwaku",
+        "Yaw",
+        "Kofi",
+        "Kwame",
+      ];
+      salutation = "Sir";
     }
     let weekDay = daysOfTheWeek[dayOfTheWeekIndex],
-        userAkanName = akanNames[dayOfTheWeekIndex];
-    console.log(genderValue);
-    console.log(salutation + ", you were born on a " + weekDay + " and your Akan name is "+userAkanName);
+      userAkanName = akanNames[dayOfTheWeekIndex];
+
+    // Alert user of his/her Akan name
+    formAlerts.appendChild(
+      document.createTextNode(
+        salutation +
+          ", you were born on a " +
+          weekDay +
+          " and your Akan name is " +
+          userAkanName
+      )
+    );
+    formAlerts.classList.remove("hide-alert");
+    formAlerts.classList.add("alert-success");
+
+    // reset the form
+    selectYear.selectedIndex = null;
+    selectMonth.selectedIndex = null;
+    selectGender.selectedIndex = null;
+    removeOptions(selectDay);
+    let option = document.createElement("option");
+    option.value = "";
+    option.textContent = "Choose day";
+    selectDay.appendChild(option);
   }
 }
 
