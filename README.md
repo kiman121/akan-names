@@ -1,12 +1,12 @@
-# Akan Name Generator
+# Akan Names Web Application
 
-#### This generator was created to help interested users know there Akan names, 2021
+#### This application was created to help interested users know there Akan names, 2021
 
 #### By **Patrick Mwangangi Kimanthi**
 
 ## Description
 
-The generator was created with the sole purpose of educating the end users of the Ghanian naming tradition, that has been shared thoughout West Africa, and tell of their respective Akan names based on their date of birth and gender. Further to this goal, the project was designed and developed to implementation of HTML, CSS, Bootstrap and JavaScript concepts learnt at Moringa School.
+The application was created with the sole purpose of educating the end users of the Ghanian naming tradition, that has been shared thoughout West Africa, and tell of their respective Akan names based on their date of birth and gender. Further to this goal, the project was designed and developed to practicaly implement HTML, CSS, Bootstrap and JavaScript concepts learnt at Moringa School.
 
 ## Demo
 
@@ -40,5 +40,5 @@ If you want to contact me, email me on kimanthip@gmail.com
 
 ### License
 
-[MIT licence](https://github.com/kiman121/akan-names/blob/master/LICENSE)
+[MIT licence](https://github.com/kiman121/akan-names/blob/master/LICENCE)
 Copyright (c) 2021 **Patrick M.K**
