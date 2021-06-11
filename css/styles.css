@@ -37,6 +37,9 @@ h3{
 .validate{
     border-color: red;
 }
+.hide-alert{
+    display: none;
+}
 @media screen and (min-width:768px) {
     .get-akan-name{
         border-top: none;

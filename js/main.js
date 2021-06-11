@@ -4,6 +4,7 @@ const selectYear = document.querySelector(".select-year");
 const selectMonth = document.querySelector(".select-month");
 const selectDay = document.querySelector(".select-day");
 const selectGender = document.querySelector(".select-gender");
+const formAlerts = document.querySelector(".form-alerts");
 
 let yearsFrom1900 = [];
 let months = [
@@ -61,9 +62,13 @@ function fetchAkanName (){
         choosenDayValue: selectDay.value,
         choosenGenderValue: selectGender.value
     };
+    
+    formAlerts.innerHTML="";
+    formAlerts.classList.remove('alert-danger');
+    formAlerts.classList.add('hide-alert');
+    
     let error = true;
     let fieldsToCheck = [];
-
     for(i = 0; i < Object.keys(formData).length; i++){
         let field = Object.keys(formData)[i], fieldValue = Object.values(formData)[i];
         // Remove '.validate' class
@@ -74,13 +79,17 @@ function fetchAkanName (){
             error = false; 
         } 
     }
-    console.log(fieldsToCheck);
+    
     if(error !== true){
         for(i=0; i < fieldsToCheck.length; i++){
             document.querySelector('#'+fieldsToCheck[i]).classList.add('validate');
         }
-    } else {
         
+        formAlerts.appendChild(document.createTextNode('Fill the missing fields!'));
+        formAlerts.classList.remove('hide-alert');
+        formAlerts.classList.add('alert-danger');
+    } else {
+
     }
 
 }
