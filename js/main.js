@@ -130,7 +130,13 @@ function fetchAkanName() {
     formAlerts.appendChild(
       document.createTextNode(
         salutation +
-          ", you were born on a " +
+          ", you were born on " +
+          MM +
+          "/" +
+          DD +
+          "/" +
+          YY +
+          " a " +
           weekDay +
           " and your Akan name is " +
           userAkanName
