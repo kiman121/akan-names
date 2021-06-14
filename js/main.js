@@ -95,8 +95,8 @@ function fetchAkanName() {
       DD = parseInt(selectDay.options[selectDay.selectedIndex].text),
       genderValue = formData.choosenGenderValue,
       dateOfBirth = new Date(MM + "/" + DD + "/" + YY),
-      dayOfTheWeekIndex = dateOfBirth.getDay();
-    (akanNames = []), (salutation = "");
+      dayOfTheWeekIndex = dateOfBirth.getDay(),
+      akanNames = [], salutation = "";
 
     const daysOfTheWeek = [
       "Sunday",
