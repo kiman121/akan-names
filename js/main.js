@@ -90,12 +90,15 @@ function fetchAkanName() {
     formAlerts.classList.remove("hide-alert");
     formAlerts.classList.add("alert-danger");
   } else {
-    let YY = parseInt(selectYear.options[selectYear.selectedIndex].text),
+    let 
+      year = selectYear.options[selectYear.selectedIndex].text,
+      CC = parseInt(year.slice(0,2));
+      YY = parseInt(year.slice(2,4)),
       MM = parseInt(formData.choosenMonthValue),
       DD = parseInt(selectDay.options[selectDay.selectedIndex].text),
       genderValue = formData.choosenGenderValue,
-      dateOfBirth = new Date(MM + "/" + DD + "/" + YY),
-      dayOfTheWeekIndex = dateOfBirth.getDay(),
+      dateOfBirth = new Date(MM + "/" + DD + "/" + year),
+      dayOfTheWeekIndex =  Math.round((((CC/4) -(2*CC-1)) + ((5*YY/4)) + ((26*(MM+1)/10)) + DD) % 7),
       akanNames = [], salutation = "";
 
     const daysOfTheWeek = [
@@ -135,7 +138,7 @@ function fetchAkanName() {
           "/" +
           MM +
           "/" +
-          YY +
+          year +
           " a " +
           weekDay +
           " and your Akan name is " +
